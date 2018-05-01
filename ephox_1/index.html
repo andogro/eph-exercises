@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=hv7a95cqc186y5wpmskmrrvwuu8i0r57dclifocmozwx3n3h"></script>
+    <script type="text/javascript">
+    tinymce.init({
+        selector: '#editor',
+        height: 200,
+        content_css: 'style.css',
+        plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
+        menubar: 'file edit insert view format table tools',
+        toolbar1: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent  | link image',
+        toolbar2: 'fontsizeselect | print editimage media | forecolor backcolor emoticons | pagebreak  | userButton',
+        setup: function(editor) {
+            editor.addButton('userButton', {
+                text: 'Insert User Name',
+                icon: false,
+                onclick: function() {
+                    editor.windowManager.open({
+                        title: 'Insert User Name - Custom Dialog',
+                        body: [{ type: 'textbox', name: 'firstName', label: 'First Name:' },
+                            { type: 'textbox', name: 'lastName', label: 'Last Name:' }
+                        ],
+                        onsubmit: function(e) {
+                            tinyMCE.activeEditor.setContent('');
+                            editor.insertContent('<span class ="abc">' + e.data.firstName + ' ' + e.data.lastName + '</span>');
+                        }
+                    });
+                }
+            })
+        }
+    });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>TinyMCE Content</h1>
+        </div>
+        <textarea id="editor" name="tinyMCEcontent" cols="50" rows="15">
+            This is some content that will be editable with TinyMCE.
+        </textarea>
+        <div class="page-header">
+            <h1>Non-TinyMCE Content</h1>
+        </div>
+        <textarea id="noteditor" name="notinyMCEcontent" cols="50" rows="15">
+            Cannot Edit with TinyMCE
+        </textarea>
+    </div>
+</body>
+
+</html>

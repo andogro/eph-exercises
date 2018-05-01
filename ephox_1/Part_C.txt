@@ -1,0 +1,18 @@
+Part C: TinyMCE exploration
+
+For this exercise I leaned heavily on the TinyMCE documentation as well as my good friend Google.
+For specifics (such as passing a variable into the onsubmit function) I found examples on jsFiddle
+through the TinyMCE community forum. These examples were very useful and I was able to apply them
+to the current exercise.
+
+I had some difficulty finding information about adding multiple text boxes as an array to the windowManager.
+Again a code example proved the easiest to follow and replicate. 
+I also had to search through google and stackoverflow for the setContent function that cleared the window onsubmit.
+
+A few interesting things I found:
+- When searching on google, I was often pointed to archived information for previous versions of tinyMCE
+- Matching the editor icons to the example proved challenging, and I was not able to add the tools item to the menu bar or the
+icon for "visual aid" to toolbar 2. This may still be an open issue:  https://community.tinymce.com/communityQuestion?id=90661000000Ied6AAC
+
+Overall it was fun to customize the editor and take a quick dive into the docs and forum to explore the tool.
+      
